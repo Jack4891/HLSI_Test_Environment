@@ -63,6 +63,8 @@ function constellationDiagram(){
   
   
         // console.log(sig)
+
+        // UNCOMMENT out to add a slider
         Slider(noise, 'gn', null, "noiseSlider");
         Label(sig, 'sinr', {
         prefix: "Signal-to-Noise Ratio: SNR = "

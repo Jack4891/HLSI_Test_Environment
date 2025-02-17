@@ -13,16 +13,10 @@
 <body>
 <div id="modCodeSlider" style="margin-left: 1%; margin-top:8%; width: 100%;"></div>
 <div id="noiseSlider" style="margin-left: 1%; margin-top:8%; width: 100%;"></div>
-<div id="constellationParent" style="width: 100%; height: 100%;"></div>
-
-
-<!-- button legacy code  -->
-<!-- <button onclick="buttonPressedAddPoints()">send message</button> -->
-
 <button onclick="buttonPressedClearPoints()">clear message</button> 
 
+<div id="constellationParent" style="width: 100%; height: 100%;"></div>
 
-<!-- <div id="my_dataviz"></div> -->
 
 </body>
 
@@ -37,39 +31,16 @@ console.log(sig.mcs)
 Slider(sig, 'mcs', null, "modCodeSlider");
 constellationDiagram()
 
-// //////////////////////////////////
-// // buttons 
-//   // adds the ability to manually send message via buttons
-//   function buttonPressedAddPoints(){
-//     // console.log(sig.sinr)
 
-//       // Add dots
-//   const randData = [
-//                 { x: 1, y: 1 },
-//                 { x: 1, y: -1 },
-//                 { x: -1, y: 1 },
-//                 { x: -1, y: -1 },
-//             ];
-//   const ebno = math.log10(math.abs(sig.sinr))
-//   console.log(ebno);
-//     for (let i = 0; i < 24; i++) {
 
-//     svg.append('g')
-//     .selectAll("dot")
-//     .data(randData)
-//     .enter()
-//     .append("circle")
-//       .attr("cx", function (d) { return x(d.x + randn_bm() * (1/ebno)**2); } )
-//       .attr("cy", function (d) { return y(d.y + randn_bm() * (1/ebno)**2); } )
-//       .attr("r", 1.5)
-//       .style("fill","#FF0000")
-//       // console.log("button pressed")
-//   }
+
+
+
 
 // }
  // use the clear all circles button
 function buttonPressedClearPoints(){
-  d3.select("#my_dataviz").selectAll("circle").remove();
+  d3.select("#constellationParent").selectAll("circle").remove();
 
 
 }
