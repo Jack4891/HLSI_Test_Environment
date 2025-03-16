@@ -1,4 +1,4 @@
-function constellationDiagramManualTargets(){
+function constellationDiagramManualTargetsMessages(){
     document.getElementById("constellationParent").innerHTML = "";
   
     let xTarget = (40 + sig1.gn)/40

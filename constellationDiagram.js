@@ -9,7 +9,7 @@ function constellationDiagram(){
                       { x: -1, y: -1 },
                   ];
     // need a bpsk flag so noise doesn't add phase noise in the BPSK version
-    let bpskFlag = false;
+    // let bpskFlag = false;
   
         // set the dimensions and margins of the graph
         const margin = {top: 10, right: 30, bottom: 30, left: 60},
@@ -129,16 +129,11 @@ function constellationDiagram(){
             return x(xVal); } )
           .attr("cy", function (d) { 
             let yVal = d.y + randn_bm() * variance;
-  
-            if(bpskFlag == true){
-              yVal = d.y
-            }else {
             if (yVal> 1.5){
               yVal = 1.5
             } else if (yVal < -1.5){
               yVal = -1.5
             }
-          }
             return y(yVal); } )
           .attr("r", 2)
           .style("fill","#FF0000")
