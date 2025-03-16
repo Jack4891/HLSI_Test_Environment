@@ -8,7 +8,7 @@
 <script src=label.js></script>
 <script src=sliders.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
-<script src=constellationDiagram.js></script>
+<script src=constellationDiagram_base.js></script>
 
 <body>
 <div id="modCodeSlider" style="margin-left: 1%; margin-top:8%; width: 100%;"></div>
@@ -24,10 +24,18 @@
 
 
 
-var sig = Signal(conf.sigIC_05, "", { bw_min: 4.0e6 });
-var noise = Signal(conf.noiseIC_05, "Noise")
-noise.gn = -60.0;
-console.log(sig.mcs)
+var sig = Signal(JSON.parse(JSON.stringify(conf.signal_multi)), '', {
+    gn_init: .1, // dB
+    gn_min: 0, // volts
+    gn_max: 10, // volts
+    mcs_init: 2, // array index int
+  });
+  var noise = Signal(JSON.parse(JSON.stringify(conf.signal_multi)), '', {
+    gn_init: 0, // dB
+    gn_min: -30,
+    gn_max: 30,
+  });
+  noise.gn = 0;
 Slider(sig, 'mcs', null, "modCodeSlider");
 constellationDiagram()
 
